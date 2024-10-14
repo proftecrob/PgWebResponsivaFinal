@@ -44,35 +44,45 @@ p {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items: flex-start; /* Alinha o conteúdo ao topo */
+    align-items: center; /* Centraliza o conteúdo verticalmente para melhor visualização no mobile */
 }
 
 .resumo {
     flex: 1;
+    width: 100%; /* Garante que o resumo use toda a largura no mobile */
 }
 
 .video {
-    flex: 1;
-    max-width: 100%;
-    height: auto;
+    width: 100%; /* Garante que o vídeo ocupe toda a largura no mobile */
+    height: auto; /* Mantém a proporção do vídeo */
     min-height: 240px; /* Altura mínima para garantir que o vídeo tenha o tamanho adequado */
 }
-
 
 /* Para telas maiores (desktop), o resumo e o vídeo ficam lado a lado */
 @media (min-width: 768px) {
     .resumo-video {
         flex-direction: row;
-        align-items: flex-start; /* Mantém o texto alinhado ao topo em telas maiores */
+        align-items: flex-start; /* Mantém o conteúdo alinhado ao topo em telas maiores */
+    }
+
+    .resumo {
+        width: auto; /* Remove a largura 100% no desktop para evitar estiramento */
+    }
+
+    .video {
+        width: 50%; /* Define uma largura fixa para o vídeo em telas maiores */
+        height: 360px; /* Define uma altura fixa para melhor visualização em desktop */
     }
 }
 
 /* Estilos para Imagem e Texto Completo */
 .imagem {
     display: block;
+    width: 100%; /* Faz a imagem ocupar 100% da largura, mas nunca mais que isso */
+    height: auto; /* Mantém a proporção da imagem */
     margin: 20px auto; /* Centraliza a imagem */
-    height: auto;
 }
+
 
 /* Rodapé */
 .footer {
